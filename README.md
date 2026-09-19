@@ -7,10 +7,12 @@ This is a full-stack monorepo managed with [Turborepo](https://turbo.build/repo)
 The workspace is divided into modular applications and shared packages:
 
 ### Apps
+
 - **`web`**: A [Next.js](https://nextjs.org/) frontend application.
 - **`server`**: A [NestJS](https://nestjs.com/) backend API server.
 
 ### Packages
+
 - **`@repo/db`**: The database layer powered by [Prisma ORM v7](https://www.prisma.io/) and PostgreSQL.
 - **`@workspace/ui`**: A shared UI component library built with [shadcn/ui](https://ui.shadcn.com/) and Tailwind CSS.
 - **`@workspace/eslint-config`**: Shared `eslint` configurations.
@@ -19,33 +21,41 @@ The workspace is divided into modular applications and shared packages:
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js
 - [pnpm](https://pnpm.io/)
 - PostgreSQL database running locally or in the cloud.
 
 ### 1. Environment Setup
 
-Ensure you have your environment variables set up. 
+Ensure you have your environment variables set up.
 
 In `packages/db/.env` and `apps/server/.env`, add your PostgreSQL database URL:
+
 ```env
 DATABASE_URL="postgresql://user:password@localhost:5432/my_database"
 ```
 
 ### 2. Install Dependencies
+
 Run the following from the root of the project to install all dependencies across the workspace:
+
 ```bash
 pnpm install
 ```
 
 ### 3. Database Initialization
+
 Push the database schema to your PostgreSQL instance and generate the Prisma Client:
+
 ```bash
 pnpm --filter @repo/db run db:push
 ```
 
 ### 4. Start Development Server
+
 Start all applications and packages simultaneously in watch mode:
+
 ```bash
 pnpm run dev
 ```
@@ -65,5 +75,45 @@ This will place the UI components in the `packages/ui/src/components` directory.
 To use the components in your app, import them from the `ui` package:
 
 ```tsx
-import { Button } from "@workspace/ui/components/button";
+import { Button } from "@workspace/ui/components/button"
+```
+
+## 📁 Web App Directory Structure
+
+The Next.js `web` application follows a feature-based architecture (Feature-Sliced Design principles) to keep the application modular, scalable, and maintain a clean container design pattern:
+
+```text
+apps/
+└── web/
+    └── src/
+        ├── app/                  # Next.js App Router (Layouts & Pages only)
+        │   ├── layout.tsx
+        │   ├── providers.tsx
+        │   └── (auth)/
+        │       └── signup/
+        │           └── page.tsx
+        │
+        ├── features/             # Domain-specific business logic & modules
+        │   └── auth/
+        │       └── signup/
+        │           ├── components/
+        │           │   ├── signup-container.tsx
+        │           │   └── signup-form.tsx
+        │           │
+        │           ├── hooks/
+        │           │   └── use-signup.ts
+        │           │
+        │           ├── api/
+        │           │   └── signup.service.ts
+        │           │
+        │           ├── schemas/
+        │           │   └── signup.schema.ts
+        │           │
+        │           └── types/
+        │               └── signup.types.ts
+        │
+        └── lib/                  # Shared utilities and configurations
+            └── api/
+                ├── api-client.ts
+                └── api-error.ts
 ```
