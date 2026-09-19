@@ -6,12 +6,12 @@ import { SignupForm } from "./signup-form"
 export const SignupContainer = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 p-4 font-sans">
-      <div className="w-full max-w-[420px] rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm sm:p-10">
-        <div className="mb-8 flex flex-col items-center">
+      <div className="w-full max-w-[460px] rounded-2xl border border-zinc-100 bg-white p-6 shadow-sm sm:p-8">
+        <div className="mb-6 flex flex-col items-center">
           {/* Logo */}
           <div className="flex flex-col items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm">
-              <TerminalSquare className="h-7 w-7" />
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-sm">
+              <TerminalSquare className="h-6 w-6" />
             </div>
             <div className="flex items-center gap-2">
               <span

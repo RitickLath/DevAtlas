@@ -37,7 +37,7 @@ export const LoginForm = () => {
         e.stopPropagation()
         form.handleSubmit()
       }}
-      className="flex w-full flex-col space-y-6"
+      className="flex w-full flex-col space-y-5"
     >
       <form.Field
         name="email"
@@ -148,7 +148,7 @@ export const LoginForm = () => {
       <form.Subscribe
         selector={(state) => [state.canSubmit, state.isSubmitting]}
         children={([canSubmit, isSubmitting]) => (
-          <div className="mt-4 flex w-full flex-col gap-2">
+          <div className="mt-3 flex w-full flex-col gap-2">
             {loginMutation.isError && (
               <p className="text-center text-[13px] text-destructive">
                 {loginMutation.error.message ||

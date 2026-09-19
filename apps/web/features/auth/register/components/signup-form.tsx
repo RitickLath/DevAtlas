@@ -38,12 +38,12 @@ export const SignupForm = () => {
         e.stopPropagation()
         form.handleSubmit()
       }}
-      className="flex w-full flex-col space-y-5"
+      className="flex w-full flex-col space-y-3"
     >
       <form.Field
         name="name"
         children={(field) => (
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor={field.name} className="text-sm font-medium">
               Full Name
             </Label>
@@ -56,7 +56,7 @@ export const SignupForm = () => {
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
                 placeholder="John Doe"
-                className="h-11 border-zinc-200 pl-10"
+                className="h-10 border-zinc-200 pl-10"
               />
             </div>
             {field.state.meta.isTouched && !field.state.meta.isValid ? (
@@ -69,7 +69,7 @@ export const SignupForm = () => {
       <form.Field
         name="email"
         children={(field) => (
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor={field.name} className="text-sm font-medium">
               Work Email
             </Label>
@@ -83,7 +83,7 @@ export const SignupForm = () => {
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
                 placeholder="engineer@company.internal"
-                className="h-11 border-zinc-200 pl-10"
+                className="h-10 border-zinc-200 pl-10"
               />
             </div>
             {field.state.meta.isTouched && !field.state.meta.isValid ? (
@@ -96,7 +96,7 @@ export const SignupForm = () => {
       <form.Field
         name="password"
         children={(field) => (
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor={field.name} className="text-sm font-medium">
               Password
             </Label>
@@ -110,7 +110,7 @@ export const SignupForm = () => {
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
                 placeholder="••••••••••••"
-                className="h-11 border-zinc-200 pr-10 pl-10 tracking-widest placeholder:tracking-normal"
+                className="h-10 border-zinc-200 pr-10 pl-10 tracking-widest placeholder:tracking-normal"
               />
               <button
                 type="button"
@@ -134,7 +134,7 @@ export const SignupForm = () => {
       <form.Field
         name="confirmPassword"
         children={(field) => (
-          <div className="space-y-2">
+          <div className="space-y-1.5">
             <Label htmlFor={field.name} className="text-sm font-medium">
               Confirm Password
             </Label>
@@ -148,7 +148,7 @@ export const SignupForm = () => {
                 onBlur={field.handleBlur}
                 onChange={(e) => field.handleChange(e.target.value)}
                 placeholder="••••••••••••"
-                className="h-11 border-zinc-200 pr-10 pl-10 tracking-widest placeholder:tracking-normal"
+                className="h-10 border-zinc-200 pr-10 pl-10 tracking-widest placeholder:tracking-normal"
               />
               <button
                 type="button"
@@ -169,7 +169,7 @@ export const SignupForm = () => {
         )}
       />
 
-      <div className="flex items-center space-x-2 pt-2 pb-2">
+      <div className="flex items-center space-x-2 pt-1 pb-1">
         <Checkbox
           id="terms"
           required
@@ -195,7 +195,7 @@ export const SignupForm = () => {
           <Button
             type="submit"
             disabled={!canSubmit || isSubmitting || signupMutation.isPending}
-            className="mt-2 flex h-12 w-full items-center justify-center gap-2 bg-[#2E65F3] text-[15px] font-semibold text-white shadow-sm hover:bg-blue-700"
+            className="mt-1 flex h-11 w-full items-center justify-center gap-2 bg-[#2E65F3] text-[15px] font-semibold text-white shadow-sm hover:bg-blue-700"
           >
             {isSubmitting || signupMutation.isPending
               ? "Creating account..."
